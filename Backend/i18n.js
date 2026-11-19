@@ -1,0 +1,93 @@
+const TRANSLATIONS = {
+  en: {
+    titlePrefix: 'Instagram',
+    titleSuffix: 'Downloader',
+    viewerTitle: 'Instagram Profile & Story Viewer',
+    subtitle: 'Download Instagram Videos, Photos, Reels, IGTV & Carousels in original quality — fast, clean, and private.',
+    placeholder: 'Paste Instagram link here (e.g. https://www.instagram.com/reel/...)',
+    paste: 'Paste',
+    clear: 'Clear',
+    download: 'Download',
+    howToTitle: 'How to download from Instagram?',
+    featuresTitle: 'Supported Content & Advantages',
+    faqTitle: 'Frequently Asked Questions',
+  },
+  es: {
+    titlePrefix: 'Descargador de',
+    titleSuffix: 'de Instagram',
+    viewerTitle: 'Visor de Perfiles e Historias de Instagram',
+    subtitle: 'Descarga Videos, Fotos, Reels, IGTV y Carruseles de Instagram en calidad original — rápido y privado.',
+    placeholder: 'Pega el enlace de Instagram aquí (ej. https://www.instagram.com/reel/...)',
+    paste: 'Pegar',
+    clear: 'Limpiar',
+    download: 'Descargar',
+    howToTitle: '¿Cómo descargar de Instagram?',
+    featuresTitle: 'Contenido compatible y ventajas',
+    faqTitle: 'Preguntas frecuentes',
+  },
+  fr: {
+    titlePrefix: 'Téléchargeur',
+    titleSuffix: 'Instagram',
+    viewerTitle: 'Visionneuse de Profils et Stories Instagram',
+    subtitle: 'Téléchargez des vidéos, photos, Reels, IGTV et carrousels Instagram en qualité originale — rapide et privé.',
+    placeholder: 'Collez le lien Instagram ici (ex. https://www.instagram.com/reel/...)',
+    paste: 'Coller',
+    clear: 'Effacer',
+    download: 'Télécharger',
+    howToTitle: 'Comment télécharger depuis Instagram ?',
+    featuresTitle: 'Contenus pris en charge et avantages',
+    faqTitle: 'Foire aux questions',
+  },
+  de: {
+    titlePrefix: 'Instagram',
+    titleSuffix: 'Downloader',
+    viewerTitle: 'Instagram Profil- & Story-Viewer',
+    subtitle: 'Lade Instagram-Videos, Fotos, Reels, IGTV & Karussells in Originalqualität herunter — schnell und privat.',
+    placeholder: 'Instagram-Link hier einfügen (z. B. https://www.instagram.com/reel/...)',
+    paste: 'Einfügen',
+    clear: 'Leeren',
+    download: 'Herunterladen',
+    howToTitle: 'Wie lädt man von Instagram herunter?',
+    featuresTitle: 'Unterstützte Inhalte & Vorteile',
+    faqTitle: 'Häufig gestellte Fragen',
+  },
+  pt: {
+    titlePrefix: 'Baixador de',
+    titleSuffix: 'do Instagram',
+    viewerTitle: 'Visualizador de Perfil e Stories do Instagram',
+    subtitle: 'Baixe Vídeos, Fotos, Reels, IGTV e Carrosséis do Instagram em qualidade original — rápido e privado.',
+    placeholder: 'Cole o link do Instagram aqui (ex. https://www.instagram.com/reel/...)',
+    paste: 'Colar',
+    clear: 'Limpar',
+    download: 'Baixar',
+    howToTitle: 'Como baixar do Instagram?',
+    featuresTitle: 'Conteúdo suportado e vantagens',
+    faqTitle: 'Perguntas frequentes',
+  },
+  ja: {
+    titlePrefix: 'Instagram',
+    titleSuffix: 'ダウンローダー',
+    viewerTitle: 'Instagram プロフィール＆ストーリービューアー',
+    subtitle: 'Instagramの動画、写真、リール、IGTV、カルーセルをオリジナル画質で高速・安全に保存。',
+    placeholder: 'Instagramのリンクを貼り付け（例: https://www.instagram.com/reel/...）',
+    paste: '貼り付け',
+    clear: 'クリア',
+    download: 'ダウンロード',
+    howToTitle: 'Instagramからダウンロードする方法',
+    featuresTitle: '対応コンテンツと特徴',
+    faqTitle: 'よくある質問',
+  },
+};
+
+function getLanguageBundle(lang) {
+  const code = String(lang || 'en').toLowerCase();
+  return {
+    lang: TRANSLATIONS[code] ? code : 'en',
+    strings: TRANSLATIONS[code] || TRANSLATIONS.en,
+    available: Object.keys(TRANSLATIONS),
+  };
+}
+
+module.exports = {
+  getLanguageBundle,
+};
