@@ -1,0 +1,11 @@
+{
+  "name": "fastdl-alt",
+  "version": "1.0.0",
+  "description": "Alternate FastDL Instagram media downloader frontend and backend functions",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test.js"
+  },
+  "license": "MIT"
+}

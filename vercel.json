@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/https://(.*)",
+      "destination": "/?url=https://$1"
+    },
+    {
+      "source": "/https:/(.*)",
+      "destination": "/?url=https://$1"
+    }
+  ]
+}

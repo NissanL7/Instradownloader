@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FastDL Alt — Instagram Video, Photo, Reels &amp; Carousel Downloader</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ec4899'/%3E%3Cpath d='M16 7v12m0 0l-5-5m5 5l5-5M9 24h14' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand">
+        <span class="brand-mark">⬇</span>
+        <span>FastDL <span class="brand-accent">Alt</span></span>
+      </a>
+      <nav class="header-nav">
+        <a href="#how-to">How to</a>
+        <a href="#features">Features</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span id="backendBadge" class="lang-badge">Backend: Checking…</span>
+        <select class="lang-badge" id="langSelect" aria-label="Language" style="background:var(--card);color:var(--text);cursor:pointer;">
+          <option value="en" selected>English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="pt">Português</option>
+          <option value="ja">日本語</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="pill-tabs" role="tablist" aria-label="Media type">
+        <button class="tab-btn active" data-type="video" aria-selected="true">Video</button>
+        <button class="tab-btn" data-type="photo" aria-selected="false">Photo</button>
+        <button class="tab-btn" data-type="reels" aria-selected="false">Reels</button>
+        <button class="tab-btn" data-type="story" aria-selected="false">Story</button>
+        <button class="tab-btn" data-type="igtv" aria-selected="false">IGTV</button>
+        <button class="tab-btn" data-type="carousel" aria-selected="false">Carousel</button>
+        <button class="tab-btn" data-type="viewer" aria-selected="false">Viewer</button>
+      </div>
+
+      <h1 id="heroTitle" class="hero-title">Instagram <span id="active-type-label">Video</span> Downloader</h1>
+      <p id="heroSubtitle" class="hero-subtitle">
+        Download Instagram Videos, Photos, Reels, IGTV &amp; Carousels in original quality — fast, clean, and private.
+      </p>
+
+      <form id="download-form" class="downloader-box">
+        <div class="input-wrap">
+          <input
+            type="text"
+            id="ig-url"
+            placeholder="Paste Instagram link here (e.g. https://www.instagram.com/reel/...)"
+            aria-label="Instagram URL"
+          />
+          <button type="button" class="ghost-btn" id="paste-btn">Paste</button>
+          <button type="button" class="ghost-btn hidden" id="clear-btn">Clear</button>
+        </div>
+        <button type="submit" class="primary-btn" id="submit-btn">Download</button>
+      </form>
+
+      <div style="margin-top:12px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;">
+        <button type="button" class="secondary-btn sample-btn" data-url="https://www.instagram.com/reel/DO5tIDME6t-/" data-type="reels">Try Sample Reel</button>
+        <button type="button" class="secondary-btn sample-btn" data-url="https://www.instagram.com/p/C8xSamplePhoto/" data-type="photo">Try Sample Photo</button>
+        <button type="button" class="secondary-btn sample-btn" data-url="https://www.instagram.com/p/C8xSampleAlbum/" data-type="carousel">Try Sample Carousel</button>
+      </div>
+
+      <div id="status-msg" class="status-msg" role="status" aria-live="polite"></div>
+
+      <div id="result-panel" class="result-panel hidden">
+        <div class="result-card">
+          <div class="result-meta">
+            <span id="result-type-badge" class="badge">Video</span>
+            <span id="result-mode-badge" class="badge">Backend</span>
+            <span id="result-title" style="font-weight:700;"></span>
+          </div>
+          <div id="result-url-display" class="result-url" style="margin-bottom:8px;"></div>
+          <p id="result-note" class="result-note"></p>
+          <div id="quality-list" class="quality-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-to" class="section section-alt">
+      <div class="container">
+        <h2 id="howToTitle" class="section-title">How to download from Instagram?</h2>
+        <div class="grid-3">
+          <div class="card">
+            <div class="step-num">STEP 01</div>
+            <h3>Copy the URL</h3>
+            <p>Open the Instagram app or website and copy the link of the photo, video, Reel, carousel, or IGTV post.</p>
+          </div>
+          <div class="card">
+            <div class="step-num">STEP 02</div>
+            <h3>Paste the link</h3>
+            <p>Paste the URL into the input field above and click Download. Our backend validates and resolves available formats.</p>
+          </div>
+          <div class="card">
+            <div class="step-num">STEP 03</div>
+            <h3>Download</h3>
+            <p>Pick your preferred quality option (MP4 or JPG) and save the file directly to your phone, tablet, or computer.</p>
+          </div>
+        </div>
+
+        <div class="shortcut-banner">
+          <div>
+            <h3>Download Instagram content from your address bar</h3>
+            <p>Prefix any public Instagram URL with this server's origin or <code>f-d.app/</code> to jump straight to downloads.</p>
+          </div>
+          <code class="shortcut-example">/https://www.instagram.com/fastdl.app/reel/DO5tIDME6t-/</code>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="container">
+        <h2 id="featuresTitle" class="section-title">Supported Content &amp; Advantages</h2>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Video &amp; MP4 Downloader</h3>
+            <p>Save single Instagram videos or multi-video carousels as clean MP4 files with no added watermarks.</p>
+          </div>
+          <div class="card">
+            <h3>Photo &amp; Carousel Downloader</h3>
+            <p>Download single post images (JPG up to 1080×1350 px) or entire multi-photo album galleries.</p>
+          </div>
+          <div class="card">
+            <h3>Reels &amp; IGTV</h3>
+            <p>Archive short-form Reels and long-form IGTV videos for offline viewing on any device.</p>
+          </div>
+          <div class="card">
+            <h3>Privacy-First &amp; Backend API</h3>
+            <p>No Instagram credentials, no registration, and no link history stored. Powered by <code>/api/validate</code>, <code>/api/resolve</code>, and <code>/api/download</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section section-alt">
+      <div class="container">
+        <h2 id="faqTitle" class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>What formats and quality are supported?</summary>
+            <p>Photos are saved as JPG (up to 1080 × 1350 px) and videos as MP4 (typically HD 720p/1080p) with no watermarks.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need to log in or install software?</summary>
+            <p>No. Everything runs in your browser with no account, no Instagram login, and no app installation required.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I download from private accounts?</summary>
+            <p>No. Only public Instagram posts visible without logging in can be fetched.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How do the backend functions work?</summary>
+            <p>The Node.js backend exposes <code>POST /api/validate</code>, <code>POST /api/resolve</code>, <code>GET /api/download</code>, <code>GET /api/languages</code>, and <code>GET /api/health</code>, plus address-bar shortcut routing.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>FastDL Alt — Full-stack alternate version inspired by fastdl.app.</p>
+      <p class="footer-note">Includes Node.js backend API for URL validation, media resolution, i18n, and download streaming.</p>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
